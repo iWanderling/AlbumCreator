@@ -1,0 +1,60 @@
+header {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+  padding: 15px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.brand {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.headerNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.menuItem {
+  cursor: pointer;
+}
+
+.menuLink {
+  transition: 0.3s;
+
+  &:hover {
+    color: rgb(198, 196, 196);
+  }
+}
+
+.loginButton {
+  transition: 0.3s;
+  border: 2px solid white;
+  width: 120px;
+  height: 45px;
+  border-radius: 70px;
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+  }
+}
