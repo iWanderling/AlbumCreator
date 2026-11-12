@@ -1,6 +1,9 @@
 import styles from "./Header.module.css"
+import { useNavigate } from "react-router-dom"
 
 export default function Header() {
+
+  const navigate = useNavigate();
 
   return (
     <header>
@@ -16,7 +19,7 @@ export default function Header() {
           </ul>
         </div>
         <div>
-          <button className={styles.loginButton} onClick={() => { }}>Войти</button>
+          <button className={styles.loginButton} onClick={() => navigate("login")}>Войти</button>
         </div>
       </div>
     </header>

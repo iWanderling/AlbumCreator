@@ -1,9 +1,9 @@
-import "./Main.module.css"
+import styles from "./Main.module.css"
 
 export default function Main() {
   return (
     <main>
-    Главная
+      <div className={styles.mainTitle}>Главная</div>
     </main>
   )
 }

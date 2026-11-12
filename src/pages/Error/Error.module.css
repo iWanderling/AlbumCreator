@@ -1,0 +1,29 @@
+.error {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  gap: 15px;
+}
+
+.errorMessage {
+  font-size: 25px;
+}
+
+.mainButton {
+  width: 160px;
+  height: 40px;
+  color: black;
+  border-radius: 30px;
+  border: 1px solid white;
+  transition: 0.3s;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    border-color: black;
+    width: 166px;
+  }
+}
