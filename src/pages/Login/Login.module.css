@@ -1,0 +1,93 @@
+.loginHeader {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+.close {
+  font-size: 20px;
+}
+
+.closeLink {
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: rgb(221, 221, 221);
+  }
+}
+
+.mainBlock {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+  gap: 15px;
+}
+
+.title {
+  font-size: 35px;
+}
+
+.register {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.registerLink {
+  text-decoration: underline;
+  transition: 0.3s;
+
+  &:hover {
+    color: rgb(221, 221, 221);
+    cursor: pointer;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formInputEmail {
+  width: 210px;
+  height: 45px;
+  border-radius: 30px;
+  border: 2px solid white;
+  text-align: center;
+  color: black;
+}
+
+.formInputPassword {
+  width: 210px;
+  height: 45px;
+  border-radius: 30px;
+  border: 2px solid white;
+  text-align: center;
+  color: black;
+}
+
+.loginButton {
+  font-size: 17px;
+  margin-top: 5px;
+  width: 210px;
+  height: 45px;
+  border-radius: 30px;
+  background-color: black;
+  border: 2px solid black;
+  text-align: center;
+  color: white;
+  transition: 0.3s;
+
+  &:hover {
+    color: rgb(221, 221, 221);
+  }
+}
