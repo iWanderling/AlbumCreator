@@ -1,9 +1,15 @@
-import "./Profile.module.css"
+import { useNavigate } from "react-router-dom"
+import styles from "./Profile.module.css"
 
 export default function Profile() {
+
+  const navigate = useNavigate();
+
   return (
-    <>
-    Профиль
+    <> 
+      <main className={styles.mainProfile}>
+        
+      </main>
     </>
   )
 }

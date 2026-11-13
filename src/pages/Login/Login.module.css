@@ -18,7 +18,7 @@
   transition: 0.3s;
 
   &:hover {
-    color: rgb(221, 221, 221);
+    color: var(--hover-color);
   }
 }
 
@@ -46,7 +46,7 @@
   transition: 0.3s;
 
   &:hover {
-    color: rgb(221, 221, 221);
+    color: var(--hover-color);
     cursor: pointer;
   }
 }
@@ -61,7 +61,8 @@
   width: 210px;
   height: 45px;
   border-radius: 30px;
-  border: 2px solid white;
+  border: 2px solid rgb(241, 241, 241);
+  background-color: rgb(241, 241, 241);
   text-align: center;
   color: black;
 }
@@ -70,7 +71,8 @@
   width: 210px;
   height: 45px;
   border-radius: 30px;
-  border: 2px solid white;
+  border: 2px solid rgb(241, 241, 241);
+  background-color: rgb(241, 241, 241);
   text-align: center;
   color: black;
 }
@@ -88,6 +90,6 @@
   transition: 0.3s;
 
   &:hover {
-    color: rgb(221, 221, 221);
+    color: var(--hover-color);
   }
 }

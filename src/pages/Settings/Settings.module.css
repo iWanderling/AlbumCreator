@@ -1,0 +1,109 @@
+.mainBlock {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.settingsBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.avatarBlock {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 120px;
+  background-color: var(--hover-color);
+}
+
+.avatarButton {
+  width: 160px;
+  height: 40px;
+  border: 0;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.navBlock {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 23px;
+  gap: 25px;
+}
+
+.navItem {
+
+}
+
+.navLink {
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.formData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formFullName {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  gap: 1px;
+}
+
+.formDataInput {
+  border: 1px solid var(--hover-color);
+  width: 380px;
+  height: 50px;
+  text-align: center;
+}
+
+.submitButton {
+  width: 250px;
+  height: 50px;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+  }
+}

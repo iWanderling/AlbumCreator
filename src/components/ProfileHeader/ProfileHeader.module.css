@@ -1,0 +1,47 @@
+.profileHeader {
+  font-weight: 500;
+  padding: 15px;
+  background-color: black;
+  color: white;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 15px;
+}
+
+.navItem {
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--hover-color);
+  }
+}
+
+.profileSettingsButton {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+}
+
+.logo {
+  font-size: 20px;
+}

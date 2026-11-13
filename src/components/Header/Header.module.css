@@ -37,7 +37,7 @@ header {
   transition: 0.3s;
 
   &:hover {
-    color: rgb(198, 196, 196);
+    color: var(--hover-color);
   }
 }
 

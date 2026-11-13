@@ -19,7 +19,7 @@ export default function Login() {
         <form className={styles.loginForm}>
           <div><input className={styles.formInputEmail} type="email" name="email" id="email" placeholder="Ваша эл. почта" required /></div>
           <div><input className={styles.formInputPassword} type="password" name="password" id="password" placeholder="Ваш пароль" required /></div>
-          <button className={styles.loginButton}>Войти</button>
+          <button className={styles.loginButton} onClick={() => navigate("/profile")}>Войти</button>
         </form>
       </main>
     </>)
