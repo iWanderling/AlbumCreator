@@ -1,0 +1,62 @@
+.main {
+  margin: 100px 200px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.formData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formDataInput {
+  border: 1px solid var(--hover-color);
+  width: 380px;
+  height: 50px;
+  text-align: center;
+}
+
+.submitButton {
+  width: 250px;
+  height: 50px;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+  }
+}
+
+.albumImages {
+  column-count: 3;
+  column-gap: 5px;
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 5px;
+}

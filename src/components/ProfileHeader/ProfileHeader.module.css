@@ -21,7 +21,9 @@
   gap: 15px;
 }
 
-.navItem {
+.navItem {}
+
+.navLink {
   cursor: pointer;
   transition: 0.3s;
 
@@ -44,4 +46,5 @@
 
 .logo {
   font-size: 20px;
+  cursor: pointer;
 }

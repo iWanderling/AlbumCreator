@@ -13,6 +13,8 @@ import Settings from "./pages/Settings/Settings"
 import Profile from "./pages/Profile/Profile"
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import Sites from './pages/Sites/Sites'
+import Galleries from './pages/Galleries/Galleries'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,9 +25,12 @@ const router = createBrowserRouter(
       <Route path="profile" element={<ProfileLayout />}>
         <Route index element={<Profile />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="sites" element={<Sites />} />
+        <Route path="galleries" element={<Galleries />} />
       </Route>
       <Route path="login" element={<Login />}></Route>
       <Route path="register" element={<Register />}></Route>
+
     </>
   )
 )

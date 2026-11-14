@@ -10,15 +10,15 @@ function PersonalData() {
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваше имя и фамилия</label>
           <div className={styles.formFullName}>
-            <input className={styles.formDataInput} />
-            <input className={styles.formDataInput} />
+            <input className={styles.formDataInput} type="text" name="name" />
+            <input className={styles.formDataInput} type="text" name="surname" />
           </div>
         </div>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваш E-Mail</label>
-          <input className={styles.formDataInput} />
+          <input className={styles.formDataInput} type="email" name="email" />
         </div>
-        <button className={styles.submitButton}>Сохранить изменения</button>
+        <button className={styles.submitButton} type="submit" >Сохранить изменения</button>
       </form>
     </>
   )
@@ -29,17 +29,18 @@ function ChangePassword() {
     <>
       <form className={styles.formData}>
         <div className={styles.formBlock}>
-          <label className={styles.formLabel}></label>
+          <label className={styles.formLabel}>Ваш старый пароль</label>
           <input className={styles.formPasswordInput} />
         </div>
         <div className={styles.formBlock}>
-          <label className={styles.formLabel}></label>
+          <label className={styles.formLabel}>Ваш новый пароль</label>
           <input className={styles.formPasswordInput} />
         </div>
         <div className={styles.formBlock}>
-          <label className={styles.formLabel}></label>
+          <label className={styles.formLabel}>Повторите новый пароль</label>
           <input className={styles.formPasswordInput} />
         </div>
+        <button className={styles.submitButton}>Сохранить изменения</button>
       </form>
     </>
   )
@@ -67,4 +68,4 @@ export default function Settings() {
       </main>
     </>
   )
-} 
+}

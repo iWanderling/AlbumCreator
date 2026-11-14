@@ -48,12 +48,13 @@ header {
   width: 120px;
   height: 45px;
   border-radius: 70px;
+  cursor: pointer;
 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 500;
 
   &:hover {
-    background: rgba(0, 0, 0, 0);
+    background: black;
     color: white;
   }
 }
