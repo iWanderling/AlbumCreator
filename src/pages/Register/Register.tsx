@@ -16,6 +16,15 @@ export default function Register() {
     if (typeof email === "string" && typeof password === "string") {
       await set(email, password);
       await set("current_user", email);
+      
+      const name = formData.get("name");
+      const surname = formData.get("surname");
+
+      if (typeof name === "string" && typeof surname === "string") {
+        await set("name", name);
+        await set("surname", surname);
+      }      
+
       navigate("/profile");
     }
   }
@@ -38,6 +47,20 @@ export default function Register() {
             name="email"
             id="email"
             placeholder="Ваша эл. почта"
+            required /></div>
+          <div><input
+            className={styles.formInputEmail}
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Ваше имя"
+            required /></div>
+          <div><input
+            className={styles.formInputEmail}
+            type="text"
+            name="surname"
+            id="surname"
+            placeholder="Ваша фамилия"
             required /></div>
           <div><input
             className={styles.formInputPassword}

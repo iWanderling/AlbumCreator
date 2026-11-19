@@ -1,22 +1,42 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styles from "./Settings.module.css"
-
+import { get, set } from "idb-keyval"
 
 
 function PersonalData() {
+
+  const [currentEmail, setCurrentEmail] = useState<string>();
+  const [currentName, setCurrentName] = useState<string>();
+  const [currentSurname, setCurrentSurname] = useState<string>();
+
+  useEffect(() => {
+    let getEmail = async () => {
+      const email = await get("current_user");
+      const name = await get("name");
+      const surname = await get("surname");
+      if (email && name && surname) {
+        setCurrentEmail(email);
+        setCurrentName(name);
+        setCurrentSurname(surname);
+      }
+    };
+
+    getEmail();
+  }, [])
+
   return (
     <>
       <form className={styles.formData}>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваше имя и фамилия</label>
           <div className={styles.formFullName}>
-            <input className={styles.formDataInput} type="text" name="name" />
-            <input className={styles.formDataInput} type="text" name="surname" />
+            <input className={styles.formDataInput} type="text" name="name" defaultValue={currentName} />
+            <input className={styles.formDataInput} type="text" name="surname" defaultValue={currentSurname} />
           </div>
         </div>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваш E-Mail</label>
-          <input className={styles.formDataInput} type="email" name="email" />
+          <input className={styles.formDataInput} type="email" name="email" defaultValue={currentEmail} />
         </div>
         <button className={styles.submitButton} type="submit" >Сохранить изменения</button>
       </form>
