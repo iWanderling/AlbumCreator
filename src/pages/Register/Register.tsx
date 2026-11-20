@@ -11,21 +11,28 @@ export default function Register() {
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email");
     const password = formData.get("password");
-    e.currentTarget.reset();
+    const isEmailFound = await get(`${email}`);
 
-    if (typeof email === "string" && typeof password === "string") {
-      await set(email, password);
-      await set("current_user", email);
-      
+    e.currentTarget?.reset();
+
+    if (typeof email === "string" && typeof password === "string" && !isEmailFound) {
+
       const name = formData.get("name");
       const surname = formData.get("surname");
 
       if (typeof name === "string" && typeof surname === "string") {
-        await set("name", name);
-        await set("surname", surname);
-      }      
-
+        await set(email, {
+          email,
+          password,
+          name,
+          surname
+        });
+        await set("current_user", email);
+      };
       navigate("/profile");
+    }
+    else {
+      navigate("/login");
     }
   }
 

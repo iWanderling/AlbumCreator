@@ -7,17 +7,19 @@ export default function Login() {
 
   const navigate = useNavigate();
   const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email");
-    const enteredPassword = formData.get("password");
-    e.currentTarget.reset();
 
-    if (typeof email === "string" && typeof enteredPassword === "string") {
-      const savedPassword = await get(email);
-      if (savedPassword === enteredPassword) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const userData = await get(`${email}`);
+    e.target.reset();
+
+    if (userData) {
+      const savedPassword = userData.password;
+      if (savedPassword === password) {
         await set("current_user", email);
-        navigate("/profile");
+        navigate("/profile/settings");
       }
     }
   }
@@ -36,7 +38,7 @@ export default function Login() {
         <form onSubmit={handleLogin} className={styles.loginForm}>
           <div><input className={styles.formInputEmail} type="email" name="email" id="email" placeholder="Ваша эл. почта" required /></div>
           <div><input className={styles.formInputPassword} type="password" name="password" id="password" placeholder="Ваш пароль" required /></div>
-          <button className={styles.loginButton} onClick={() => navigate("/profile")}>Войти</button>
+          <button className={styles.loginButton}>Войти</button>
         </form>
       </main>
     </>
