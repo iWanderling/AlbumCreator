@@ -22,10 +22,10 @@ export default function Register() {
 
       if (typeof name === "string" && typeof surname === "string") {
         await set(email, {
-          email,
           password,
           name,
-          surname
+          surname,
+          avatar: null
         });
         await set("current_user", email);
       };
