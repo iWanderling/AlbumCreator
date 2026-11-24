@@ -1,0 +1,63 @@
+.mainProfile {
+  margin: 100px 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.profileAvatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 120px;
+  background-color: var(--hover-color);
+  object-fit: cover;
+}
+
+.profileTitle {
+  font-size: 32px;
+}
+
+.profileAlbums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  cursor: pointer;
+}
+
+.album {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+
+  &:hover {
+    color: rgb(89, 89, 89);
+  }
+}
+
+.albumTitle {
+  font-size: 21px;
+  transition: 0.6s;
+}
+
+.albumImg {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.6s;
+
+  &:hover {
+    filter: grayscale(100%);
+  }
+}

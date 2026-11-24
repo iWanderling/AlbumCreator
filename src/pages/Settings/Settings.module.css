@@ -28,6 +28,7 @@
   height: 160px;
   border-radius: 120px;
   background-color: var(--hover-color);
+  object-fit: cover;
 }
 
 .avatarButton {

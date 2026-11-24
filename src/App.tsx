@@ -23,15 +23,14 @@ const router = createBrowserRouter(
         <Route index path="/" element={<Main />} />
       </Route>
       <Route path="profile" element={<ProfileLayout />}>
-        <Route index element={<Profile />} />
         <Route path="settings" element={<Settings />} />
         <Route path="sites" element={<Sites />} />
         <Route path="galleries" element={<Galleries />} />
       </Route>
       <Route path="album/:album_id" element={<Album />} />
+      <Route path="profile/:profile_id" element={<Profile />} />
       <Route path="login" element={<Login />}></Route>
       <Route path="register" element={<Register />}></Route>
-
     </>
   )
 )
