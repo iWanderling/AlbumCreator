@@ -8,7 +8,7 @@ import ProfileLayout from './layouts/ProfileLayout'
 // Pages
 import Main from './pages/Main/Main'
 import Error from "./pages/Error/Error"
-// import Album from "./pages/Album/Album"
+import Album from "./pages/Album/Album"
 import Settings from "./pages/Settings/Settings"
 import Profile from "./pages/Profile/Profile"
 import Login from './pages/Login/Login'
@@ -28,6 +28,7 @@ const router = createBrowserRouter(
         <Route path="sites" element={<Sites />} />
         <Route path="galleries" element={<Galleries />} />
       </Route>
+      <Route path="album/:album_id" element={<Album />} />
       <Route path="login" element={<Login />}></Route>
       <Route path="register" element={<Register />}></Route>
 

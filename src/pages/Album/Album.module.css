@@ -1,0 +1,22 @@
+.main {
+  margin: 100px 200px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.albumImages {
+  column-count: 3;
+  column-gap: 5px;
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 5px;
+}

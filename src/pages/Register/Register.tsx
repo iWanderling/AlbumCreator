@@ -25,7 +25,8 @@ export default function Register() {
           password,
           name,
           surname,
-          avatar: null
+          avatar: null,
+          albums: []
         });
         await set("current_user", email);
       };

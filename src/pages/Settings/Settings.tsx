@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import styles from "./Settings.module.css"
-import { get, set, del } from "idb-keyval"
+import { get, set, del, entries } from "idb-keyval"
 import { useNavigate } from "react-router-dom";
 
 

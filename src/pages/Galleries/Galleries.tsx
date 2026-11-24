@@ -7,7 +7,8 @@ export default function Galleries() {
 
   const [title, setTitle] = useState<any>();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [images, setImages] = useState<string[]>([]);
+  const [urlImages, setUrlImages] = useState<string[]>([]);
+  const [fileImages, setFileImages] = useState<File[]>([]);
   const navigate = useNavigate();
 
   // Download images into album
@@ -15,24 +16,36 @@ export default function Galleries() {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
 
-    let i = 0;
-    const newUrls = files.map((file) => {
-      set(`img${i}`, file);
-      i++;
-      return URL.createObjectURL(file);
+    const filesURL: string[] = [];
 
-    });
-    setImages((prev) => [...prev, ...newUrls]);
+    for (let i = 0; i < files.length; i++) {
+      filesURL.push(URL.createObjectURL(files[i]));
+    }
+
+    setUrlImages((p) => [...p, ...filesURL]);
+    setFileImages((p) => [...p, ...files]);
     e.target.value = "";
   }
 
   // Change album title
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.target);
     const albumTitle = formData.get("title");
-    setTitle(albumTitle);
-    e.currentTarget.reset();
+    
+    const currentUserEmail = await get("current_user");
+    if (currentUserEmail) {
+      const currentUserData = await get(currentUserEmail);
+      currentUserData.albums.push({
+        title: albumTitle,
+        images: fileImages
+      });
+      await set(currentUserEmail, {
+        ...currentUserData
+      });
+      navigate(`/album/${albumTitle}`);
+    };
+
   }
 
   return (
@@ -70,7 +83,7 @@ export default function Galleries() {
           </form>
           <div className={styles.albumTitle}>{title}</div>
           <div className={styles.albumImages}>
-            {images.map((image, index) => (
+            {urlImages.map((image, index) => (
               <img className={styles.image} key={index} src={image} onClick={() => navigate(`/image/${image}`)} />
             ))}
           </div>
