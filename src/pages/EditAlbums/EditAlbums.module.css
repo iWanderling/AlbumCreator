@@ -1,0 +1,60 @@
+.main {
+  margin: 100px 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.formData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formDataInput {
+  border: 1px solid var(--hover-color);
+  width: 380px;
+  height: 50px;
+  text-align: center;
+}
+
+.submitButton {
+  width: 250px;
+  height: 50px;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+  }
+}
+
+.albumImg {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.6s;
+
+  &:hover {
+    filter: grayscale(100%);
+  }
+}

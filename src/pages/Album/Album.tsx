@@ -2,13 +2,12 @@ import "./Album.module.css"
 import styles from "./Album.module.css"
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { get, set } from "idb-keyval"
+import { get } from "idb-keyval"
 
 
 export default function Album() {
 
   const [albumTitle, setAlbumTitle] = useState<string>()
-  const [albumImages, setAlbumImages] = useState<File[]>([]);
   const [urlAlbumImages, setUrlAlbumImages] = useState<string[]>([]);
   const albumID = useParams()["album_id"];
   const navigate = useNavigate();
@@ -27,7 +26,6 @@ export default function Album() {
           }
 
           setAlbumTitle(album.title);
-          setAlbumImages(album.images);
           setUrlAlbumImages(filesURL);
         }
       }

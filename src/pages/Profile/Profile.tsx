@@ -11,7 +11,7 @@ export default function Profile() {
   const [avatar, setAvatar] = useState<string>();
   const [title, setTitle] = useState<string>();
   const [albums, setAlbums] = useState<{ title: string, url: string }[]>();
-
+  
   console.log(profileID);
   useEffect(() => {
     const downloadProfile = async () => {

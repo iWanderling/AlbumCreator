@@ -12,7 +12,8 @@ export default function ProfileHeader() {
           <div className={styles.logo} onClick={() => navigate("/")}>Album Creator</div>
           <ul className={styles.headerNav}>
             <li className={styles.navItem}><a className={styles.navLink} onClick={() => navigate("sites")}>Сайты</a></li>
-            <li className={styles.navItem}><a className={styles.navLink} onClick={() => navigate("galleries")}>Галереи</a></li>
+            <li className={styles.navItem}><a className={styles.navLink} onClick={() => navigate("galleries")}>Создать</a></li>
+            <li className={styles.navItem}><a className={styles.navLink} onClick={() => navigate("my-albums")}>Мои альбомы</a></li>
             <li className={styles.navItem}><a className={styles.navLink} onClick={() => navigate("settings")}> Настройки</a></li>
             <li className={styles.profileSettings}>
               <button className={styles.profileSettingsButton} onClick={() => navigate("settings")}></button>

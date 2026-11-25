@@ -1,0 +1,73 @@
+.main {
+  margin: 100px 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.profileAlbums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.albumBlock {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.album {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(89, 89, 89);
+  }
+}
+
+.albumTitle {
+  font-size: 21px;
+  transition: 0.6s;
+}
+
+.albumImg {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.6s;
+
+  &:hover {
+    filter: grayscale(100%);
+  }
+}
+
+.ruleButtons {
+  display: flex;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.ruleButton {
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  width: 130px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    color: rgb(208, 208, 208);
+  }
+}

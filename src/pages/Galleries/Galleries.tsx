@@ -43,9 +43,8 @@ export default function Galleries() {
       await set(currentUserEmail, {
         ...currentUserData
       });
-      navigate(`/album/${albumTitle}`);
+      navigate(`/profile/my-albums/${albumTitle}`);
     };
-
   }
 
   return (
