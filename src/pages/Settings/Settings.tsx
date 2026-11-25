@@ -72,22 +72,51 @@ function PersonalData() {
 }
 
 function ChangePassword() {
+
+  const [message, setMessage] = useState<string>();
+
+  const handleForm = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const currentUser = await get("current_user");
+    if (currentUser) {
+      const currentUserData = await get(currentUser);
+      const formData = new FormData(e.target);
+      const oldP = formData.get("old");
+      const newP = formData.get("new");
+      if (oldP === currentUserData.password) {
+        const repeatNewP = formData.get("repeat-new");
+        if (newP === repeatNewP) {
+          currentUserData.password = newP;
+          set(currentUser, { ...currentUserData });
+          setMessage("Пароль изменён!")
+        }
+        else {
+          setMessage("Новый пароль указан неверно!")
+        }
+      }
+      else {
+        setMessage("Пароль указан неверно!")
+      }
+    }
+  }
+
   return (
     <>
-      <form className={styles.formData}>
+      <form className={styles.formData} onSubmit={handleForm}>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваш старый пароль</label>
-          <input className={styles.formPasswordInput} />
+          <input className={styles.formPasswordInput} type="password" name="old" />
         </div>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Ваш новый пароль</label>
-          <input className={styles.formPasswordInput} />
+          <input className={styles.formPasswordInput} type="password" name="new" />
         </div>
         <div className={styles.formBlock}>
           <label className={styles.formLabel}>Повторите новый пароль</label>
-          <input className={styles.formPasswordInput} />
+          <input className={styles.formPasswordInput} type="password" name="repeat-new" />
         </div>
         <button className={styles.submitButton}>Сохранить изменения</button>
+        <div className={styles.passwordMessage}>{message}</div>
       </form>
     </>
   )

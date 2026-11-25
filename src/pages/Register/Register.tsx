@@ -1,11 +1,21 @@
 import styles from "./Register.module.css"
 import { useNavigate } from "react-router-dom"
 import { get, set } from "idb-keyval";
+import { useEffect } from "react";
 
 
 export default function Register() {
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const redirectIfAuthorised = async () => {
+      const currentUser = await get("current_user");
+      if (currentUser) navigate("/profile/settings");
+    }
+    redirectIfAuthorised();
+  }, [])
+
   const handleRegister = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);

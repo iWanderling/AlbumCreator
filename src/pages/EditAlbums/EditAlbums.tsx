@@ -55,8 +55,6 @@ export default function EditAlbums() {
     }
   }
 
-  // удалять изображения
-
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
