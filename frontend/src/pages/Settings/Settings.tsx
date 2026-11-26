@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import styles from "./Settings.module.css"
-import { get, set, del, entries } from "idb-keyval"
-import { useNavigate } from "react-router-dom";
+import { get, set, del } from "idb-keyval"
 
 
 function PersonalData() {
@@ -9,14 +8,22 @@ function PersonalData() {
   const [currentEmail, setCurrentEmail] = useState<string>();
   const [currentName, setCurrentName] = useState<string>();
   const [currentSurname, setCurrentSurname] = useState<string>();
-  const navigate = useNavigate();
+  const [message, setMessage] = useState<string>();
+  const messageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showMessageStatus = async (text: string) => {
+    setMessage(text);
+    if (messageTimerRef.current) {
+      clearTimeout(messageTimerRef.current);
+    }
+    messageTimerRef.current = setTimeout(() => setMessage(""), 2000);
+  }
 
   useEffect(() => {
 
     let getEmail = async () => {
       const email = await get("current_user");
       const userData = await get(email);
-      console.log(email);
 
       if (userData) {
         setCurrentName(userData.name);
@@ -42,11 +49,15 @@ function PersonalData() {
       if (currentUserEmail && !isEmailExisted) {
         let currentUser = await get(currentUserEmail);
         currentUser = { ...currentUser, name: name, surname: surname };
-        if (currentUserEmail !== email) {
+        if (currentUserEmail !== email && typeof email === "string") {
           del(currentUserEmail);
           set("current_user", email);
+          set(email, currentUser);
+          showMessageStatus("Почта успешно изменена!")
         }
-        if (typeof email === "string") set(email, currentUser);
+      }
+      else {
+        showMessageStatus("Что-то пошло не так!")
       }
     }
   }
@@ -66,6 +77,7 @@ function PersonalData() {
           <input className={styles.formDataInput} type="email" name="email" defaultValue={currentEmail} />
         </div>
         <button className={styles.submitButton} type="submit" >Сохранить изменения</button>
+        {message && <div className={styles.message}>{message}</div>}
       </form>
     </>
   )
@@ -74,6 +86,15 @@ function PersonalData() {
 function ChangePassword() {
 
   const [message, setMessage] = useState<string>();
+  const messageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showMessageStatus = async (text: string) => {
+    setMessage(text);
+    if (messageTimerRef.current) {
+      clearTimeout(messageTimerRef.current);
+    }
+    messageTimerRef.current = setTimeout(() => setMessage(""), 2000);
+  }
 
   const handleForm = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -88,14 +109,14 @@ function ChangePassword() {
         if (newP === repeatNewP) {
           currentUserData.password = newP;
           set(currentUser, { ...currentUserData });
-          setMessage("Пароль изменён!")
+          showMessageStatus("Пароль изменён!")
         }
         else {
-          setMessage("Новый пароль указан неверно!")
+           showMessageStatus("Новый пароль указан неверно!")
         }
       }
       else {
-        setMessage("Пароль указан неверно!")
+         showMessageStatus("Пароль указан неверно!")
       }
     }
   }
@@ -116,7 +137,7 @@ function ChangePassword() {
           <input className={styles.formPasswordInput} type="password" name="repeat-new" />
         </div>
         <button className={styles.submitButton}>Сохранить изменения</button>
-        <div className={styles.passwordMessage}>{message}</div>
+        {message && <div className={styles.message}>{message}</div>}
       </form>
     </>
   )
